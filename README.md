@@ -1,12 +1,43 @@
 # React + Vite
+# Individual exam :  Bakgrund
+Bygga foodtruck:en Yum Yum Gimme Sum som serverar wontons. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Krav
+Följande funktionalitet ska finnas med:
 
-Currently, two official plugins are available:
+                        -Det ska gå att hämta och visa menyn
+                        -Det ska gå att kunna lägga till produkter i en varukorg
+                        -Det ska gå att kunna ta bort produkter från en varukorg
+                        -Det ska gå att kunna växla mellan vyer (menyn, till varukorgen, till se beställning, för VG till se kvitto)
+                        -Det ska gå och kunna lägga en beställning och få tillbaka ett ordernummer och en ETA (Estimated Time of Arrival)
+                        
+                        ***VG: Det ska gå och kunna se sitt kvitto på sin beställning
+                        Skiss
+                        Skissen hittar du här.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+                        #API
+#API-dokumentation hittar du här. Observera att alla anrop kräver en API-nyckel som du får genom att göra ett fetch-anrop till /keys.
 
-## Expanding the ESLint configuration
+API-nyckel skickas sedan med i varje request på nedan sätt:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+                            let resp = await fetch("https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/menu", {
+                              method: "GET",
+                              headers: { "x-zocom": "<api-key-here>" },
+                            });
+Du kommer behöva skapa en "tenant" (ditt namn på din foodtruck) först med hjälp av endpoint:en /tenant som ska användas för orderläggning senare.
+
+Betygskriterier
+För Godkänt krävs:
+
+                            Gjort enligt Figma skissen (viss variation på färger, typsnitt etc är tillåtet) (Förutom kvitto sidan som gäller för VG nivå)
+                            Uppfyller alla krav på funktionalitet
+                            Använder sig av React router
+                            Använder sig av Redux Toolkit med en Redux store
+                            Använder sig av det bifogade API:et
+För Väl Godkänt krävs:
+
+                            Allt i godkänt
+                            Det ska gå och kunna se sitt kvitto på sin beställning
+                            Att du använt dig av createAsyncThunk för api-anrop
+                            Inlämning
+                            Inlämning av examination sker på Azomo med länk till ditt Githubrepo senast torsdagen den 13/3 kl 23:59.
